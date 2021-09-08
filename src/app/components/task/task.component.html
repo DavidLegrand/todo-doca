@@ -1,11 +1,23 @@
 <li [class]="['list-group-item', 'list-group-item-action']" [class.list-group-item-success]="task.completed"
   [class.list-group-item-warning]="!task.completed">
   <header class="mb-2">
-    <h2 class="d-inline">{{task.title}}</h2>
-    <input type="text" [(ngModel)]="task.title" />
+    <h2 class="d-inline">
+      <span style="cursor: pointer;" *ngIf="!editMode; else:editBlock" (click)="toggleEditMode()">{{task.title}}</span>
+      <ng-template #editBlock>
+        <form (submit)="toggleEditMode()">
+          <input type="text" [(ngModel)]="task.title" (blur)="toggleEditMode()" name="editTitle" autofocus />
+        </form>
+      </ng-template>
+
+    </h2>
+
     <span [class]="['d-inline', 'float-end', 'badge']" [class.bg-success]="task.completed"
       [class.bg-warning]="!task.completed" [class.text-dark]="!task.completed">
       {{getComplete()}}</span>
   </header>
+  <div>
+    <p>{{task.description ? "Description : "+task.description : ""}}</p>
+    <p>{{task.created ? "Créée le : ":''}}{{task.created|date:'dd/MM/YY à hh:mm'}}</p>
+  </div>
   <button class="btn btn-dark" (click)="toggleComplete()">{{getButtonText()}}</button>
 </li>

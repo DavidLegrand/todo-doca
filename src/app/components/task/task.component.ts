@@ -8,14 +8,17 @@ import Task from 'src/app/models/task';
 })
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
-
+  editMode: boolean = false;
   constructor() {}
-  
+
   getComplete(): string {
     return this.task?.completed ? 'Terminée' : 'En cours';
   }
   toggleComplete(): void {
     this.task.completed = !this.task.completed;
+  }
+  toggleEditMode(): void {
+    if (this.task.title) this.editMode = !this.editMode;
   }
   getButtonText(): string {
     return this.task.completed ? 'Annuler' : 'Terminer';

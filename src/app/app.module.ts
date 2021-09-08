@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import '@angular/common/locales/fr'
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -9,18 +11,9 @@ import { ParentComponent } from './in-out/parent/parent.component';
 import { EnfantComponent } from './in-out/enfant/enfant.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TaskComponent,
-    ParentComponent,
-    EnfantComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  declarations: [AppComponent, TaskComponent, ParentComponent, EnfantComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
