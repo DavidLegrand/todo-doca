@@ -1,12 +1,11 @@
-<li [class]="['list-group-item', 'list-group-item-action']" [class.list-group-item-success]="complete"
-  [class.list-group-item-warning]="!complete">
+<li [class]="['list-group-item', 'list-group-item-action']" [class.list-group-item-success]="task.completed"
+  [class.list-group-item-warning]="!task.completed">
   <header class="mb-2">
-    <h2 class="d-inline">{{name}}</h2>
-    <input type="text" [(ngModel)]="name" />
-    <span [class]="['d-inline', 'float-end', 'badge']" [class.bg-success]="complete" [class.bg-warning]="!complete"
-      [class.text-dark]="!complete">
+    <h2 class="d-inline">{{task.title}}</h2>
+    <input type="text" [(ngModel)]="task.title" />
+    <span [class]="['d-inline', 'float-end', 'badge']" [class.bg-success]="task.completed"
+      [class.bg-warning]="!task.completed" [class.text-dark]="!task.completed">
       {{getComplete()}}</span>
   </header>
   <button class="btn btn-dark" (click)="toggleComplete()">{{getButtonText()}}</button>
 </li>
-

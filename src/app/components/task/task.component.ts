@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import Task from 'src/app/models/task';
 
 @Component({
   selector: 'app-task',
@@ -6,24 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent implements OnInit {
-  name: string;
-  complete: boolean;
+  @Input() task!: Task;
 
-  user: any;
-
-  constructor() {
-    this.name = 'Faire le ménage';
-    this.complete = true;
-    setTimeout(()=> this.user = { name: 'David' }, 2000)
-  }
+  constructor() {}
+  
   getComplete(): string {
-    return this.complete ? 'Terminée' : 'En cours';
+    return this.task?.completed ? 'Terminée' : 'En cours';
   }
   toggleComplete(): void {
-    this.complete = !this.complete;
+    this.task.completed = !this.task.completed;
   }
   getButtonText(): string {
-    return this.complete ? 'Annuler' : 'Terminer';
+    return this.task.completed ? 'Annuler' : 'Terminer';
   }
   ngOnInit(): void {}
 }

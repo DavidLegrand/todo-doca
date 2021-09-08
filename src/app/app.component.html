@@ -1,13 +1,9 @@
 <main class="container">
-  <app-parent></app-parent>
   <h1 class="display-1 text-center">{{title}}</h1>
-  {{toto?.name}}
   <div class="row">
     <div class="col">
       <ul class="list-group">
-        <app-task></app-task>
-        <app-task></app-task>
-        <app-task></app-task>
+        <app-task *ngFor="let task of tasks; trackBy:trackById" [task]="task"></app-task>
       </ul>
     </div>
   </div>
