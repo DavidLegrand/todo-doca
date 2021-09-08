@@ -8,14 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class TaskComponent implements OnInit {
   name: string;
   complete: boolean;
-  color='red'
+
+  user: any;
 
   constructor() {
     this.name = 'Faire le ménage';
-    this.complete = false;
+    this.complete = true;
+    setTimeout(()=> this.user = { name: 'David' }, 2000)
   }
   getComplete(): string {
     return this.complete ? 'Terminée' : 'En cours';
+  }
+  toggleComplete(): void {
+    this.complete = !this.complete;
+  }
+  getButtonText(): string {
+    return this.complete ? 'Annuler' : 'Terminer';
   }
   ngOnInit(): void {}
 }

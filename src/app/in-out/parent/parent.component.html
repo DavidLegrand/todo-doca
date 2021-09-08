@@ -1,0 +1,7 @@
+<p>parent works!</p>
+<app-enfant [ordre]="ordres[0]" [ville]="villes[0]" (newNote)="calculMoyenne($event)"></app-enfant>
+<app-enfant [ordre]="ordres[1]" [ville]="villes[1]" (newNote)="calculMoyenne($event)"></app-enfant>
+<app-enfant [ordre]="ordres[2]" [ville]="villes[2]" (newNote)="calculMoyenne($event)"></app-enfant>
+<app-enfant [ordre]="ordres[3]" [ville]="villes[3]" (newNote)="calculMoyenne($event)"></app-enfant>
+<app-enfant [ordre]="ordres[4]" [ville]="villes[4]" (newNote)="calculMoyenne($event)"></app-enfant>
+<p>Moyenne de mes enfants : {{moyenne}}/20</p>

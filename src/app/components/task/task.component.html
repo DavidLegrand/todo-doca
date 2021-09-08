@@ -1,4 +1,12 @@
-<li class="list-group-item list-group-item-action">
-  <h2 class="d-inline" [attr.custom-attribut]="true">{{name}}</h2>
-  <span class="float-end badge bg-secondary">{{getComplete()}}</span>
+<li [class]="['list-group-item', 'list-group-item-action']" [class.list-group-item-success]="complete"
+  [class.list-group-item-warning]="!complete">
+  <header class="mb-2">
+    <h2 class="d-inline">{{name}}</h2>
+    <input type="text" [(ngModel)]="name" />
+    <span [class]="['d-inline', 'float-end', 'badge']" [class.bg-success]="complete" [class.bg-warning]="!complete"
+      [class.text-dark]="!complete">
+      {{getComplete()}}</span>
+  </header>
+  <button class="btn btn-dark" (click)="toggleComplete()">{{getButtonText()}}</button>
 </li>
+
