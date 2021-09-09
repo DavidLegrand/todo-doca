@@ -8,6 +8,7 @@ import Task from '../../models/task';
   styleUrls: ['./todolist.component.css'],
 })
 export class TodolistComponent implements OnInit {
+  title="To Do List"
   trackById(index: number, task: Task): number {
     return task.id;
   }

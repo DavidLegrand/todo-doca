@@ -1,1 +1,2 @@
-<button *ngIf="!auth.isAuth" class="btn btn-primary">Connexion</button>
+<app-h1 [title]="title"></app-h1>
+<button *ngIf="!auth.isAuth" class="btn btn-primary" (click)="auth.login()">Connexion</button>

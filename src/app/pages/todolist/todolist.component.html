@@ -1,3 +1,4 @@
+<app-h1 [title]="title"></app-h1>
 <ul *ngIf="tdlS.tasks && tdlS.tasks.length; else:noTasks" class="list-group">
   <app-task *ngFor="let task of tdlS.tasks; trackBy:trackById" [task]="task"></app-task>
 </ul>

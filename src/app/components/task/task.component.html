@@ -8,9 +8,7 @@
           <input type="text" [(ngModel)]="task.title" (blur)="toggleEditMode()" name="editTitle" autofocus />
         </form>
       </ng-template>
-
     </h2>
-
     <span [class]="['d-inline', 'float-end', 'badge']" [class.bg-success]="task.completed"
       [class.bg-warning]="!task.completed" [class.text-dark]="!task.completed">
       {{getComplete()}}</span>
@@ -19,8 +17,11 @@
     <p>{{task.description ? "Description : "+task.description : ""}}</p>
     <p>{{task.created ? "Créée le : ":''}}{{task.created|date:'dd/MM/YY à hh:mm'}}</p>
   </div>
-  <button class="btn btn-dark" (click)="toggleComplete()">{{getButtonText()}}</button>
-  <button class="btn btn-danger" (click)="toggleDeleteMode()" [disabled]="deleteMode">x</button>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-dark me-3" (click)="toggleComplete()">{{getButtonText()}}</button>
+    <a class="btn btn-dark" [routerLink]="['/todolist', task.id]">Afficher</a>
+    <button class="btn btn-danger ms-3" (click)="toggleDeleteMode()" [disabled]="deleteMode">x</button>
+  </div>
 </li>
 <li [class]="['list-group-item', 'list-group-item-secondary']" *ngIf="deleteMode">
   Voulez vous vraiment supprimer cette tâche ?

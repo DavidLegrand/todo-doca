@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  title = 'Se connecter';
   constructor(public auth: AuthService) {}
 
   ngOnInit(): void {}

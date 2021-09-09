@@ -12,9 +12,11 @@ import { NavComponent } from './components/nav/nav.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './pages/home/home.component';
+import { H1Component } from './components/h1/h1.component';
+import { TaskDetailsComponent } from './pages/task-details/task-details.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent],
+  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,1 +1,1 @@
-<button *ngIf="auth.isAuth" class="btn btn-primary">Déconnexion</button>
+<button *ngIf="auth.isAuth" class="btn btn-primary" (click)="auth.logout()">Déconnexion</button>
