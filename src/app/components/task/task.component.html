@@ -20,4 +20,10 @@
     <p>{{task.created ? "Créée le : ":''}}{{task.created|date:'dd/MM/YY à hh:mm'}}</p>
   </div>
   <button class="btn btn-dark" (click)="toggleComplete()">{{getButtonText()}}</button>
+  <button class="btn btn-danger" (click)="toggleDeleteMode()" [disabled]="deleteMode">x</button>
+</li>
+<li [class]="['list-group-item', 'list-group-item-secondary']" *ngIf="deleteMode">
+  Voulez vous vraiment supprimer cette tâche ?
+  <button class="btn btn-danger" (click)="deleteTask()">Confirmer supression</button>
+  <button class="btn btn-dark" (click)="toggleDeleteMode()">Annuler suppression</button>
 </li>

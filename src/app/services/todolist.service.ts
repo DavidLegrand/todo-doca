@@ -35,4 +35,8 @@ export class TodolistService {
   updateTasks(newTasks: Array<Task>) {
     this.tasks = newTasks;
   }
+
+  deleteTask(id: number) {
+    this.updateTasks(this.tasks.filter((task) => task.id !== id));
+  }
 }

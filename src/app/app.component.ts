@@ -9,12 +9,9 @@ import Task from './models/task';
 })
 export class AppComponent {
   title: string = 'Mon application';
-  tasks?: Array<Task>;
 
   trackById(index: number, task: Task): number {
     return task.id;
   }
-  constructor(public tdlS: TodolistService) {
-    this.tasks = this.tdlS.tasks;
-  }
+  constructor(public tdlS: TodolistService) {}
 }

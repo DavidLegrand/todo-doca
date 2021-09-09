@@ -1,3 +1,4 @@
+import { TodolistService } from './../../services/todolist.service';
 import { Component, Input, OnInit } from '@angular/core';
 import Task from 'src/app/models/task';
 
@@ -9,7 +10,9 @@ import Task from 'src/app/models/task';
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
   editMode: boolean = false;
-  constructor() {}
+  deleteMode: boolean = false;
+
+  constructor(private tdlS: TodolistService) {}
 
   getComplete(): string {
     return this.task?.completed ? 'Terminée' : 'En cours';
@@ -20,8 +23,14 @@ export class TaskComponent implements OnInit {
   toggleEditMode(): void {
     if (this.task.title) this.editMode = !this.editMode;
   }
+  toggleDeleteMode(): void {
+    this.deleteMode = !this.deleteMode;
+  }
   getButtonText(): string {
     return this.task.completed ? 'Annuler' : 'Terminer';
+  }
+  deleteTask(): void {
+    this.tdlS.deleteTask(this.task.id);
   }
   ngOnInit(): void {}
 }

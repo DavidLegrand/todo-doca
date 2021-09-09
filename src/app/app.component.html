@@ -2,8 +2,8 @@
   <h1 class="display-1 text-center">{{title}}</h1>
   <div class="row">
     <div class="col">
-      <ul *ngIf="tasks; else:noTasks" class="list-group">
-        <app-task *ngFor="let task of tasks; trackBy:trackById" [task]="task"></app-task>
+      <ul *ngIf="tdlS.tasks; else:noTasks" class="list-group">
+        <app-task *ngFor="let task of tdlS.tasks; trackBy:trackById" [task]="task"></app-task>
       </ul>
       <ng-template #noTasks>
         <ul #noTasks class="list-group">
