@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TaskDetailsComponent } from './pages/task-details/task-details.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
     path: 'todolist/:id',
     component: TaskDetailsComponent,
   },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

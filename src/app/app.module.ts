@@ -14,9 +14,10 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { H1Component } from './components/h1/h1.component';
 import { TaskDetailsComponent } from './pages/task-details/task-details.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent],
+  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent, NotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,28 +1,41 @@
-<app-h1 [title]="task.title"></app-h1>
-<table class="table">
-  <tbody>
-    <tr>
-      <th scope="row">Id</th>
-      <td>{{task.id}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Statut</th>
-      <td><span [class]="['d-inline', 'badge']" [class.bg-success]="task.completed"
-          [class.bg-warning]="!task.completed" [class.text-dark]="!task.completed">
-          {{task.completed ? "Terminée" : "En cours"}}</span></td>
-    </tr>
-    <tr>
-      <th scope="row">Description</th>
-      <td>{{task.description}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Créée le</th>
-      <td>{{task.created|date:'dd/MM/yy à hh:mm:ss'}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Créée par</th>
-      <td>{{task.owner}}</td>
-    </tr>
-  </tbody>
-</table>
-<a class="btn btn-primary" routerLink="/todolist">{{"<< Retour à la liste"}}</a>
+<div *ngIf="task; else notFound">
+  <app-h1 [title]="task.title"></app-h1>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Id</th>
+        <td>{{task.id}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Statut</th>
+        <td><span [class]="['d-inline', 'badge']" [class.bg-success]="task.completed"
+            [class.bg-warning]="!task.completed" [class.text-dark]="!task.completed">
+            {{task.completed ? "Terminée" : "En cours"}}</span></td>
+      </tr>
+      <tr>
+        <th scope="row">Description</th>
+        <td>{{task.description}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Créée le</th>
+        <td>{{task.created|date:'dd/MM/yy à hh:mm:ss'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Créée par</th>
+        <td>{{task.owner}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #notFound>
+  <app-h1 [title]="'Erreur 404'"></app-h1>
+  <p>La tâche demandée n'existe pas</p>
+</ng-template>
+
+<a class="btn btn-primary" routerLink="/todolist">{{"\<\< Retour à la liste"}}</a>
+    <div class="d-flex">
+      <a *ngIf="task.id>0" class="btn btn-primary" [routerLink]="['/todolist', task.id-1]">{{"\< Précédente"}}</a>
+          <a *ngIf="task.id<2" class="btn btn-primary" [routerLink]="['/todolist', task.id+1]">{{"Suivante \>"}}</a>
+
+    </div>
