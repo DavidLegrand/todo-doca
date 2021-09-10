@@ -15,9 +15,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { H1Component } from './components/h1/h1.component';
 import { TaskDetailsComponent } from './pages/task-details/task-details.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ObservableComponent } from './observable/observable.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent, NotFoundComponent],
+  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent, NotFoundComponent, ObservableComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

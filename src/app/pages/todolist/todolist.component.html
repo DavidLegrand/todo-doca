@@ -1,10 +1,10 @@
 <app-h1 [title]="title"></app-h1>
-<ul *ngIf="tdlS.tasks && tdlS.tasks.length; else:noTasks" class="list-group">
-  <app-task *ngFor="let task of tdlS.tasks; trackBy:trackById" [task]="task"></app-task>
+<ul *ngIf="tasks && tasks.length; else:noTasks" class="list-group">
+  <app-task *ngFor="let task of tasks; trackBy:trackById" [task]="task"></app-task>
 </ul>
 <ng-template #noTasks>
   <ul class="list-group">
     <li [class]="['list-group-item', 'list-group-item-secondary']">
-      {{!tdlS.tasks ? "...Chargement de la todolist" : "Aucune tâche pour le moment"}}</li>
+      {{!tasks ? "...Chargement de la todolist" : "Aucune tâche pour le moment"}}</li>
   </ul>
 </ng-template>

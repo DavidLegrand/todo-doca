@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import Task from '../models/task';
 
 const initialList: Array<Task> = [
@@ -28,12 +29,17 @@ const initialList: Array<Task> = [
   providedIn: 'root',
 })
 export class TodolistService {
-  tasks!: Array<Task>;
+  private tasks!: Array<Task>;
+  todolistSubject: BehaviorSubject<Array<Task>>;
+
   constructor() {
+    this.todolistSubject = new BehaviorSubject(initialList)
     this.updateTasks(initialList);
   }
+
   updateTasks(newTasks: Array<Task>) {
     this.tasks = newTasks;
+    this.emit();
   }
 
   deleteTask(id: number) {
@@ -42,5 +48,9 @@ export class TodolistService {
 
   getTaskById(id: number): Task {
     return this.tasks.filter((task) => task.id === id)[0];
+  }
+
+  emit(): void {
+    this.todolistSubject.next(this.tasks);
   }
 }
