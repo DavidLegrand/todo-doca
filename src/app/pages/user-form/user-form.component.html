@@ -1,1 +1,24 @@
-<p>user-form works!</p>
+<app-h1 [title]="'Nouvel utilisateur'"></app-h1>
+<form (submit)="onSubmit()" [formGroup]="userForm">
+  <div class="mb-3">
+    <label for="firstName" class="form-label">Prénom</label>
+    <input type="text" name="firstName" class="form-control" id="firstName" formControlName="firstName" />
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Nom</label>
+    <input type="text" name="lastName" class="form-control" id="lastName" formControlName="lastName" />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="email" formControlName="email" />
+  </div>
+  <div class="mb-3">
+    <label for="team" class="form-label">Equipe</label>
+    <select name="team" class="form-control" id="team" formControlName="team">
+      <option value="admin">Admin</option>
+      <option value="front">Front</option>
+      <option value="back">Back</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
