@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import '@angular/common/locales/fr'
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './components/task/task.component';
@@ -18,10 +17,28 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ObservableComponent } from './observable/observable.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { TaskFormComponent } from './pages/task-form/task-form.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { UserFormComponent } from './pages/user-form/user-form.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent, NotFoundComponent, ObservableComponent, LifecycleComponent, TaskFormComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [
+    AppComponent,
+    TaskComponent,
+    TodolistComponent,
+    NavComponent,
+    LoginComponent,
+    LogoutComponent,
+    HomeComponent,
+    H1Component,
+    TaskDetailsComponent,
+    NotFoundComponent,
+    ObservableComponent,
+    LifecycleComponent,
+    TaskFormComponent,
+    UserListComponent,
+    UserFormComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

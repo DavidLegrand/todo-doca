@@ -1,0 +1,23 @@
+<app-h1 [title]="title"></app-h1>
+<ul *ngIf="users && users.length; else:noUsers" class="list-group">
+
+  <li *ngFor="let user of users; trackBy:trackByMail" [class]="['list-group-item', 'list-group-item-action']">
+    <header class="mb-2">
+      <h2 class="d-inline">{{user.firstName}} {{user.lastName}}</h2>
+      <span [class]="['d-inline', 'float-end', 'badge', 'bg-success']">{{user.team}}</span>
+    </header>
+    <div>
+      <p>Email : {{user.email}}</p>
+      <p>{{user.skills?.length ? "Compétences : ":''}}
+        <span *ngFor="let skill of user.skills; let last = last ">{{skill}}{{last ? '': ', '}}</span>
+      </p>
+    </div>
+  </li>
+
+</ul>
+<ng-template #noUsers>
+  <ul class="list-group">
+    <li [class]="['list-group-item', 'list-group-item-secondary']">
+      {{!users ? "...Chargement des utilisateurs" : "Aucun utilisateur pour le moment"}}</li>
+  </ul>
+</ng-template>

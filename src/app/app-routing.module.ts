@@ -1,3 +1,5 @@
+import { UserFormComponent } from './pages/user-form/user-form.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 import { TaskFormComponent } from './pages/task-form/task-form.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -19,6 +21,13 @@ const routes: Routes = [
         component: HomeComponent,
         pathMatch: 'full',
         data: { title: 'Accueil' },
+      },
+      {
+        path: 'users',
+        children: [
+          { path: '', component: UserListComponent },
+          { path: 'add', component: UserFormComponent },
+        ],
       },
       {
         path: 'todolist',
