@@ -1,0 +1,18 @@
+<app-h1 [title]="'Nouvelle tâche'"></app-h1>
+<form (ngSubmit)="onSubmit(newTaskForm)" #newTaskForm="ngForm">
+  <div class="mb-3">
+    <label for="title" class="form-label">Titre</label>
+    <input type="text" name="title" class="form-control" id="title" ngModel required />
+    <div class="form-text text-danger" [hidden]="newTaskForm.valid || newTaskForm.pristine">Veuillez entrer un titre
+      pour la tâche</div>
+  </div>
+  <div class="mb-3">
+    <input type="checkbox" class="form-check-input" id="completed" name="completed" ngModel>
+    <label class="form-check-label" for="completed">Terminée ?</label>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea type="text" name="description" class="form-control" id="description" ngModel></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!newTaskForm.valid">Ajouter</button>
+</form>

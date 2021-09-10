@@ -33,8 +33,27 @@ export class TodolistService {
   todolistSubject: BehaviorSubject<Array<Task>>;
 
   constructor() {
-    this.todolistSubject = new BehaviorSubject(initialList)
+    this.todolistSubject = new BehaviorSubject(initialList);
     this.updateTasks(initialList);
+  }
+
+  getNewId(): number {
+    return (
+      this.tasks.reduce((prevTask, currTask) =>
+        prevTask.id > currTask.id ? prevTask : currTask
+      ).id + 1
+    );
+  }
+
+  addTask(formTask: {
+    title: string;
+    completed: boolean;
+    description?: string;
+  }) {
+    const newTask = formTask as Task;
+    newTask.id = this.getNewId();
+    newTask.created = new Date();
+    this.updateTasks([...this.tasks, newTask]);
   }
 
   updateTasks(newTasks: Array<Task>) {

@@ -18,6 +18,6 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
   constructor(private router: Router) {
-    this.isAuth = false;
+    this.isAuth = true;
   }
 }

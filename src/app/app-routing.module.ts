@@ -1,3 +1,4 @@
+import { TaskFormComponent } from './pages/task-form/task-form.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TaskDetailsComponent } from './pages/task-details/task-details.component';
@@ -24,6 +25,10 @@ const routes: Routes = [
         pathMatch: 'full',
         component: TodolistComponent,
         data: { title: 'To Do List' },
+      },
+      {
+        path: 'todolist/add',
+        component: TaskFormComponent,
       },
       {
         path: 'todolist/:id',

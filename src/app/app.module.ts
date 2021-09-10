@@ -16,9 +16,11 @@ import { H1Component } from './components/h1/h1.component';
 import { TaskDetailsComponent } from './pages/task-details/task-details.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ObservableComponent } from './observable/observable.component';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
+import { TaskFormComponent } from './pages/task-form/task-form.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent, NotFoundComponent, ObservableComponent],
+  declarations: [AppComponent, TaskComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent, HomeComponent, H1Component, TaskDetailsComponent, NotFoundComponent, ObservableComponent, LifecycleComponent, TaskFormComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

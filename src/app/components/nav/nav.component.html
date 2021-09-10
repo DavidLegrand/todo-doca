@@ -11,9 +11,17 @@
             <a class="nav-link" routerLink="/" routerLinkActive="active"
               [routerLinkActiveOptions]="{exact:true}">Accueil</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/todolist" routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact:true}">Todolist</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Todolist
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" routerLink="/todolist" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact:true}">Afficher</a></li>
+              <li><a class="dropdown-item" routerLink="/todolist/add" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact:true}">Ajouter</a></li>
+            </ul>
           </li>
         </ng-template>
       </ul>
